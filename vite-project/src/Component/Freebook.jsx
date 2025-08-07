@@ -6,23 +6,24 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const Freebook = () => {
-  const [books, setBooks] = useState([]); // Initialize as an empty array
+  const [books, setBooks] = useState([]); 
+  const API_BASE_URL= import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000'
 
   useEffect(() => {
     const getbook = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/book");
-        console.log(res.data);
+        const res = await axios.get(`${API_BASE_URL}/book`);
+      
         setBooks(res.data.filter((data) => data.category === "free"));
       } catch (error) {
         console.log("Error fetching books:", error);
-        // Optionally, you can set an error state to show an error message to the user
+        
       }
     };
     getbook();
   }, []);
 
-  // Slider settings
+  
   const settings = {
     dots: true,
     infinite: false,

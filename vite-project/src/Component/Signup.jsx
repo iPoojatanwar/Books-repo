@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form'
 const Signup = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const API_BASE_URL= import.meta.env.VITE_API_BASE_URL || "http://localhost:4000"
   const form = location.state?.form?.pathname || "/";
   const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -19,7 +20,7 @@ const Signup = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:4000/user/signup", userInfo);
+      const res = await axios.post(`${API_BASE_URL}/user/signup`, userInfo);
       console.log(res.data);
       
       if (res.data) {

@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 function Login() {
   const { register, formState: { errors }, handleSubmit } = useForm();
   const navigate = useNavigate(); 
+  const API_BASE_URL= import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000'
 
   const onSubmit = async data => {
     const userInfo = {
@@ -15,7 +16,7 @@ function Login() {
     };
 
     try {
-      const res = await axios.post("http://localhost:4000/user/login", userInfo);
+      const res = await axios.post(`${API_BASE_URL}/user/login`, userInfo);
       
       if (res.data) {
         toast.success('Login successful');

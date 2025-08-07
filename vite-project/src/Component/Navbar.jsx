@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Navbar.css';
+
 import { Link } from 'react-router-dom';
 import Login from './Login';
 import Logout from './Logout';
@@ -104,7 +104,7 @@ function Navbar() {
                   checked={theme === "dark"}
                   onChange={() => setTheme(theme === "light" ? "dark" : "light")}
                 />
-                {/* Sun Icon */}
+                
                 <svg
                   className="swap-off h-7 w-7 fill-current"
                   xmlns="http://www.w3.org/2000/svg"

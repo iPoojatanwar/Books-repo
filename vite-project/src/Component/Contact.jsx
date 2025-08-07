@@ -2,10 +2,12 @@ import React from 'react'
 import Navbar from './Navbar'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 
 const Contact = () => {
   const{register, formState:{errors}, handleSubmit}=useForm()
-  const onSubmit= (data)=>{console.log(data)}
+  const onSubmit= (data)=>{toast.success("Thank you for your feedback 💐💐💐")} 
+  
   return (
     <>
   
